@@ -1,8 +1,36 @@
--- Run first script
-loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
+-- Function to safely run a script in its own environment
+local function runScriptInSandbox(url)
+    -- Create a new, clean environment
+    local env = {}
+    setmetatable(env, { __index = _G }) -- Allow access to global functions (like 'wait', 'print')
+    
+    -- Fetch and run the script in the isolated env
+    local scriptSrc = game:HttpGet(url)
+    local fn, err = loadstring(scriptSrc)
+    
+    if not fn then
+        warn("Script error in " .. url .. ":", err)
+        return false
+    end
+    
+    setfenv(fn, env) -- Run in the isolated env
+    local success, err = pcall(fn)
+    
+    if not success then
+        warn("Execution error in " .. url .. ":", err)
+        return false
+    end
+    
+    return true
+end
 
--- Wait 0.5 seconds (adjust if needed)
+-- Run the first script in its own sandbox
+runScriptInSandbox("https://pastefy.app/VQwXim3w/raw")
+
+-- Wait a short delay (optional, but helps avoid conflicts)
 task.wait(0.5)
 
--- Run second script
-loadstring(game:HttpGet("https://pastefy.app/dfb9apMV/raw"))()
+-- Run the second script in a separate sandbox
+runScriptInSandbox("https://raw.githubusercontent.com/NoLagHub3/XXXSCRIPT/main/EGG/ESP/HUB/V2")
+
+print("Both scripts executed successfully!")
