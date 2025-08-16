@@ -7,5 +7,5 @@ local function loadScript(url)
     end
 end
 
-loadScript("https://pastefy.app/VQwXim3w/raw")
-loadScript("https://pastefy.app/dfb9apMV/raw")
+loadstring("https://pastefy.app/VQwXim3w/raw")
+loadstring("https://pastefy.app/dfb9apMV/raw")
