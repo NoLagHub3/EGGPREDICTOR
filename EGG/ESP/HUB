@@ -1,36 +1,11 @@
--- Function to safely run a script in its own environment
-local function runScriptInSandbox(url)
-    -- Create a new, clean environment
-    local env = {}
-    setmetatable(env, { __index = _G }) -- Allow access to global functions (like 'wait', 'print')
-    
-    -- Fetch and run the script in the isolated env
-    local scriptSrc = game:HttpGet(url)
-    local fn, err = loadstring(scriptSrc)
-    
-    if not fn then
-        warn("Script error in " .. url .. ":", err)
-        return false
-    end
-    
-    setfenv(fn, env) -- Run in the isolated env
-    local success, err = pcall(fn)
-    
+local function loadScript(url)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(url))()
+    end)
     if not success then
-        warn("Execution error in " .. url .. ":", err)
-        return false
+        warn("Failed to load script: " .. err)
     end
-    
-    return true
 end
 
--- Run the first script in its own sandbox
-runScriptInSandbox("https://pastefy.app/VQwXim3w/raw")
-
--- Wait a short delay (optional, but helps avoid conflicts)
-task.wait(0.5)
-
--- Run the second script in a separate sandbox
-runScriptInSandbox("https://raw.githubusercontent.com/NoLagHub3/XXXSCRIPT/main/EGG/ESP/HUB/V2")
-
-print("Both scripts executed successfully!")
+loadScript("https://pastefy.app/VQwXim3w/raw")
+loadScript("https://pastefy.app/dfb9apMV/raw")
