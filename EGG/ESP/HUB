@@ -1,6 +1,8 @@
+-- Run first script
 loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
 
--- Wait 2 second before running the next script
-task.wait(1) 
+-- Wait 0.5 seconds (adjust if needed)
+task.wait(0.5)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NoLagHub3/XXXSCRIPT/refs/heads/main/EGG/ESP/HUB/V2"))()
+-- Run second script
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NoLagHub3/XXXSCRIPT/main/EGG/ESP/HUB/V2"))()
